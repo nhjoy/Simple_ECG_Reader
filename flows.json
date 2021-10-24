@@ -1,0 +1,113 @@
+[
+    {
+        "id": "7342026fd4c4efe2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9388c3c9dc5b83b8",
+        "type": "ui_chart",
+        "z": "7342026fd4c4efe2",
+        "name": "",
+        "group": "e99aad2ea7d0723a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "bezier",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 890,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "913abf3562975756",
+        "type": "smooth",
+        "z": "7342026fd4c4efe2",
+        "name": "low pass filter",
+        "property": "payload",
+        "action": "low",
+        "count": "2",
+        "round": "",
+        "mult": "single",
+        "reduce": false,
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "9388c3c9dc5b83b8"
+            ]
+        ]
+    },
+    {
+        "id": "69b6bdaa39ea8b58",
+        "type": "arduino in",
+        "z": "7342026fd4c4efe2",
+        "name": "sensor_input",
+        "pin": "0",
+        "state": "ANALOG",
+        "arduino": "c8d0e72adae2439a",
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "913abf3562975756"
+            ]
+        ]
+    },
+    {
+        "id": "e99aad2ea7d0723a",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "3299805e677917a9",
+        "order": 1,
+        "disp": true,
+        "width": "27",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c8d0e72adae2439a",
+        "type": "arduino-board",
+        "device": "COM3"
+    },
+    {
+        "id": "3299805e677917a9",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
